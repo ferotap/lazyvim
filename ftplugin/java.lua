@@ -1,8 +1,8 @@
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 local home = vim.fn.expand("$HOME")
 local workspace_dir = home .. ".cache/jdtls/workspace/" .. project_name
-local jdlts_path = vim.fn.expand("$HOME") .. "/.local/share/lazyvim.nvim/mason/packages/jdtls/"
-local launcher_version = "1.6.400.v20210924-0641"
+local jdlts_path = vim.fn.expand("$HOME") .. "/.local/share/nvim/mason/packages/jdtls/"
+local launcher_version = "1.6.500.v20230717-2134"
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 local config = {
   -- The command that starts the language server
