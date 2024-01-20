@@ -11,6 +11,26 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
-    opts = {},
+    config = function()
+      lspconfig = require("lspconfig")
+      lspconfig.jdtls.setup({
+        settings = {
+          java = {
+            configuration = {
+              runtimes = {
+                {
+                  name = "JavaSE-17",
+                  path = "/opt/kela/java/default",
+                  default = true,
+                },
+              },
+            },
+          },
+        },
+      })
+      lspconfig.lemminx.setup({
+        settings = {}
+      })
+    end,
   },
 }
