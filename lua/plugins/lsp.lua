@@ -1,8 +1,27 @@
+local lua_ls_settings = {
+  Lua = {
+    runtime = {
+      version = 'LuaJIT'
+    },
+    diagnostics = {
+      globals = {
+        'vim'
+      },
+    },
+    workspace = {
+      library = {
+        [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+        [vim.fn.stdpath('config')] = true,
+      },
+    },
+    telemetry = { enabled = false },
+  }
+}
 return {
   {
     "williamboman/mason.nvim",
     opts = {
-      ensure_installed = {
+      enkure_installed = {
         "jdtls",
         "lemminx",
         "lua-language-server",
@@ -12,7 +31,7 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function()
-      lspconfig = require("lspconfig")
+      local lspconfig = require("lspconfig")
       lspconfig.jdtls.setup({
         settings = {
           java = {
@@ -31,6 +50,9 @@ return {
       lspconfig.lemminx.setup({
         settings = {}
       })
-    end,
+      lspconfig.lua_ls.setup({
+        settings = lua_ls_settings
+      })
+    end
   },
 }
